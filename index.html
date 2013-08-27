@@ -4,7 +4,9 @@
 	<head>
 		<title>VoxelHouse Countdown</title>
 		<style type="text/css" src=""></style>
-	</head>
+	        <script src="jquery-1.10.2.min.js"></script>
+                <script src="moment.js"></script>
+        </head>
 
 	<body>
 		<h1>How many days until VoxelCon?</h1>
@@ -14,94 +16,92 @@
 		<p id="minutes"></p>
 		<p id="seconds"></p>
 		<h2 id="VoxelConHeader"></h2>
-		<script src="jquery-1.10.2.min.js"></script>
-		<script src="moment.js"></script>
 		<script type="text/javascript">
 
-		var words = ["glorious", "amazing", "sad", "boring", "fantastic", "great", "long", "shopping"];
+        		var words = ["glorious", "amazing", "sad", "boring", "fantastic", "great", "long", "shopping"];
 
-		var today = new Date();
-		var conDate = new Date("30 October 2013");
-		var todayEpoch  = today.getTime();
-		var conEpoch = conDate.getTime();
+        		var today = new Date();
+        		var conDate = new Date("30 October 2013");
+        		var todayEpoch  = today.getTime();
+        		var conEpoch = conDate.getTime();
 
-		$(document).ready(function() {
-			moment().format();
-			updateClock();
-			setInterval(updateClock, 1000);
-		});
+        		$(document).ready(function() {
+        			moment().format();
+        			updateClock();
+        			setInterval(updateClock, 1000);
+        		});
 
-        function updateClock(){
-        	var today = moment();
-        	var con = moment([2013, 4, 28]);
-        	var millisec = con.diff(today, 'milliseconds', true);
-        	var months = Math.floor(moment.duration(millisec).asMonths());
-        	con = con.subtract('months', months).subtract('days', 1);
-        	millisec = con.diff(today, 'milliseconds', true);
-        	var days = Math.floor(moment.duration(millisec).asDays());
-        	con = con.subtract('days', days);
-        	millisec = con.diff(today, 'milliseconds', true);
-        	var hours = Math.floor(moment.duration(millisec).asHours());
-        	con = con.subtract('hours', hours);
-        	millisec = con.diff(today, 'milliseconds', true);
-        	var minutes = Math.floor(moment.duration(millisec).asMinutes());
-        	con.subtract('minutes', minutes);
-        	millisec = con.diff(today, 'milliseconds', true);
-        	var seconds = Math.floor(moment.duration(millisec).asSeconds());
+                        function updateClock(){
+                        	var today = moment();
+                        	var con = moment([2013, 4, 28]);
+                        	var millisec = con.diff(today, 'milliseconds', true);
+                        	var months = Math.floor(moment.duration(millisec).asMonths());
+                        	con = con.subtract('months', months).subtract('days', 1);
+                        	millisec = con.diff(today, 'milliseconds', true);
+                        	var days = Math.floor(moment.duration(millisec).asDays());
+                        	con = con.subtract('days', days);
+                        	millisec = con.diff(today, 'milliseconds', true);
+                        	var hours = Math.floor(moment.duration(millisec).asHours());
+                        	con = con.subtract('hours', hours);
+                        	millisec = con.diff(today, 'milliseconds', true);
+                        	var minutes = Math.floor(moment.duration(millisec).asMinutes());
+                        	con.subtract('minutes', minutes);
+                        	millisec = con.diff(today, 'milliseconds', true);
+                        	var seconds = Math.floor(moment.duration(millisec).asSeconds());
 
-        	if(months == 0 && days == 0 && hours == 0 && minutes == 0 && seconds == 0){
-        		$('#VoxelConHeader').text("IT'S HAPPENING!!!!!!!");
-        		return;
-        	}
+                        	if(months == 0 && days == 0 && hours == 0 && minutes == 0 && seconds == 0){
+                        		$('#VoxelConHeader').text("IT'S HAPPENING!!!!!!!");
+                        		return;
+                        	}
 
-        	var randomWord = words[getRandomInt(0, words.length - 1)];
-        	if(months == 1){
-        		$('#months').text("1 " + randomWord + " month left");
-        	}
-        	else{
-        		$('#months').text(Math.abs(months) + " " + randomWord + " months left");
-        	}
+                        	var randomWord = words[getRandomInt(0, words.length - 1)];
+                        	if(months == 1){
+                        		$('#months').text("1 " + randomWord + " month left");
+                        	}
+                        	else{
+                        		$('#months').text(Math.abs(months) + " " + randomWord + " months left");
+                        	}
 
-        	randomWord = words[getRandomInt(0, words.length - 1)];
-        	if(days == 1){
-        		$('#days').text("1 " + randomWord + " day left");
-        	}
-        	else{
-        		$('#days').text(Math.abs(days) + " " + randomWord + " days left");
-        	}
+                        	randomWord = words[getRandomInt(0, words.length - 1)];
+                        	if(days == 1){
+                        		$('#days').text("1 " + randomWord + " day left");
+                        	}
+                        	else{
+                        		$('#days').text(Math.abs(days) + " " + randomWord + " days left");
+                        	}
 
-        	randomWord = words[getRandomInt(0, words.length - 1)];
-        	if(hours == 1){
-        		$('#hours').text("1 " + randomWord + " hour left");
-        	}
-        	else{
-        		$('#hours').text(Math.abs(hours) + " " + randomWord + " hours left");
-        	}
+                        	randomWord = words[getRandomInt(0, words.length - 1)];
+                        	if(hours == 1){
+                        		$('#hours').text("1 " + randomWord + " hour left");
+                        	}
+                        	else{
+                        		$('#hours').text(Math.abs(hours) + " " + randomWord + " hours left");
+                        	}
 
-        	randomWord = words[getRandomInt(0, words.length - 1)];
-        	if(minutes == 1){
-        		$('#minutes').text("1 " + randomWord + " minute left");
-        	}
-        	else{
-        		$('#minutes').text(Math.abs(minutes) + " " + randomWord + " minutes left");
-        	}       	  
+                        	randomWord = words[getRandomInt(0, words.length - 1)];
+                        	if(minutes == 1){
+                        		$('#minutes').text("1 " + randomWord + " minute left");
+                        	}
+                        	else{
+                        		$('#minutes').text(Math.abs(minutes) + " " + randomWord + " minutes left");
+                        	}       	  
 
-        	randomWord = words[getRandomInt(0, words.length - 1)];
-        	if(seconds == 1){
-        		$('#seconds').text("1 " + randomWord + " second left");
-        	}
-        	else{
-        		$('#seconds').text(Math.abs(seconds) + " " + randomWord + " seconds left");
-        	}               	      	
-        }
+                        	randomWord = words[getRandomInt(0, words.length - 1)];
+                        	if(seconds == 1){
+                        		$('#seconds').text("1 " + randomWord + " second left");
+                        	}
+                        	else{
+                        		$('#seconds').text(Math.abs(seconds) + " " + randomWord + " seconds left");
+                        	}               	      	
+                        }
 
-		function getRandomInt(min, max) {
-		    return Math.floor(Math.random() * (max - min + 1)) + min;
-		}      
+        		function getRandomInt(min, max) {
+        		    return Math.floor(Math.random() * (max - min + 1)) + min;
+        		}      
 
-		function daysBetween() {
-			return Math.floor(((conEpoch - todayEpoch) / (60 * 60 * 24)) / 1000);
-		}
+        		function daysBetween() {
+        			return Math.floor(((conEpoch - todayEpoch) / (60 * 60 * 24)) / 1000);
+        		}
 
 		</script>
 
