@@ -18,13 +18,8 @@
                 <script src="moment.js"></script>                
 		<script type="text/javascript">
 
-        		var words = ["glorious", "amazing", "sad", "boring", "fantastic", "great", "long", "shopping"];
-
-        		var today = new Date();
-        		var conDate = new Date("30 October 2013");
-        		var todayEpoch  = today.getTime();
-        		var conEpoch = conDate.getTime();
-
+        		var words = ["glorious", "amazing", "sad", "boring", "fantastic", "great", "long", "shopping", "muscular","Dumptacular","fantasmical","erroneus","filthy","groaning","thrusting","throbbing","pulsing","grunting","attractive","blossoming","pubescent","lagging","Chunk-rendering","bleeping","Starburst-hating","Dumples-loving","slightly erotic","moist","dripping","well-hatted","remaining months","codpiece-wearing","bad-grammaring"];
+                        
         		$(document).ready(function() {
         			moment().format();
         			updateClock();
@@ -33,7 +28,7 @@
 
                         function updateClock(){
                         	var today = moment();
-                        	var con = moment([2013, 4, 28]);
+                        	var con = moment([2013, 10, 28]);
                         	var millisec = con.diff(today, 'milliseconds', true);
                         	var months = Math.floor(moment.duration(millisec).asMonths());
                         	con = con.subtract('months', months).subtract('days', 1);
