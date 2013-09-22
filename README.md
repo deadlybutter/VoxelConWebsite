@@ -1,4 +1,4 @@
 VoxelConWebsite
 ===============
 
-Site for voxelcon.com
+Countdown for voxelcon.com
